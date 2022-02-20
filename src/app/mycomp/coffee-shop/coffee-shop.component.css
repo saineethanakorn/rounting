@@ -1,0 +1,45 @@
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+label , select ,option, span , p{
+  font-size: 1.2rem;
+}
+
+#cusname {
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+}
+
+input[type=text], select {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 10%;
+  background-color: #8b8b8b;
+  color: white;
+  padding: 14px 20px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+ button:valid {
+  background-color: #4CAF50;
+ }
+
+ #showmessage {
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  padding: 14px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+

@@ -1,0 +1,71 @@
+<h1>COFFEE SHOP</h1>
+<p id="cusname">Your Name : {{orderForm.value.CustomerName}}</p>
+<form [formGroup]="orderForm">
+  <div >
+    <label>Name : </label><br>
+    <input type="text" formControlName="CustomerName">
+    <span style="color: red;" *ngIf="orderForm.get('CustomerName')?.errors?.['required']"> *</span>
+  </div>
+
+  <div>
+    <label>Email : </label><br>
+    <input type="text" formControlName="CustomerEmail">
+    <span style="color: red;" *ngIf="orderForm.get('CustomerEmail')?.errors?.['required']"> *</span>
+    <span style="color: red;" *ngIf="orderForm.get('CustomerEmail')?.errors?.['email']"> Email is Valid</span>
+
+  </div>
+
+  <div>
+    <label>Phone : </label><br>
+    <input type="text" formControlName="CustomerPhone">
+    <span style="color: red;" *ngIf="orderForm.get('CustomerPhone')?.errors?.['required']"> *</span>
+    <span style="color: red;" *ngIf="orderForm.get('CustomerPhone')?.errors?.['minlength']"> Phone Number Should be a least 9 Interger</span>
+  </div>
+
+  <div>
+    <select formControlName="OrderName">
+      <option value="">What would you like to drink?</option>
+      <option value="Americano">Americano</option>
+      <option value="Cappuccino">Cappuccino</option>
+      <option value="Doppio">Doppio</option>
+      <option value="Espresso">Espresso</option>
+      <option value="Flat White">Flat White</option>
+      <option value="Latte">Latte</option>
+      <option value="Mocca">Mocca</option>
+    </select>
+    <span style="color: red;" *ngIf="orderForm.get('OrderName')?.errors?.['required']"> *</span>
+  </div>
+
+  <div>
+    <label>Hot or Cold ?</label>
+      <span style="color: red;" *ngIf="orderForm.get('OrderTemp')?.errors?.['required']"> *</span><br>
+      <input type="radio" formControlName="OrderTemp" value="Hot" checked>
+      <label> Hot</label><br>
+      <input type="radio" formControlName="OrderTemp" value="Cold">
+      <label> Cold</label>
+
+  </div>
+
+  <div>
+    <input type="checkbox" formControlName="SendText" >
+    <label> Send me a text message when my order is ready</label>
+  </div>
+
+  <div>
+    <button [disabled]="orderForm.invalid" (click)="show()" style="font-size: 1.5rem;">Place order</button>
+  <hr>
+  </div>
+
+
+  <h1>Order Confirmation</h1>
+  <p id="showmessage"></p>
+  <p id="datasub">Data submitted :
+    {{orderForm.value.OrderName | json}}
+    {{orderForm.value.OrderTemp | json}}
+  </p>
+  <p>Date / Time :
+    {{orderForm.value.Date}}
+  </p>
+
+</form>
+
